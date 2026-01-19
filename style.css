@@ -1,0 +1,345 @@
+body {
+    background-color: white;
+}
+
+.starter-template {
+    padding: 40px 15px;
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+}
+
+p {
+    text-indent: 10px;
+    margin: 0;
+}
+
+.row {
+    width: 100%;
+    margin-left: 0;
+}
+
+.col {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.marginAdd {
+    display: none;
+}
+
+.mirador-canvas-nav {
+    display: none !important;
+}
+
+/* STARTING HERE! */
+/* LAYOUT */
+
+.supraAdd {
+    vertical-align: 0.8em;
+    font-size: 0.8em;
+}
+
+.infraAdd {
+    vertical-align: -0.8em;
+    font-size: 0.8em;
+}
+
+.infraAdd.MetaMark {
+    vertical-align: -0.3em;
+}
+
+.infraAdd.MetaMark.hidden {
+    display: none;
+}
+
+.overwrittenAdd {
+    font-weight: 500;
+}
+
+.hiCircled {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.65em;
+    height: 1.65em;
+    border: 1.5px solid currentColor;
+    border-radius: 50%;
+    line-height: 1;
+}
+
+.hiRight {
+    display: inline-block;
+    text-align: left;
+}
+
+.hiIndent {
+    display: inline-block;
+    padding-left: 1em;
+}
+
+.Underlined {
+    text-decoration: underline;
+}
+
+/* DELETIONS */
+
+/* Base deletion styling (line is drawn manually via ::after) */
+del {
+    position: relative;
+    color: #474747;
+    text-decoration: none;
+}
+
+/* Default strike-through for all deletions (including .overwritten) */
+del::after {
+    content: "";
+    position: absolute;
+    left: 0.0em;
+    right: 0.0em;
+    top: 0.8em;
+    border-top: 1px solid currentColor;
+    pointer-events: none;
+}
+
+
+del.overwritten {
+    opacity: 0.6;
+}
+
+/* Raise strike when deletion contains raised text */
+del:has(sup.hiSup)::after,
+del:has(.overwritten)::after,
+del:has(.supraAdd)::after,
+del:has(.margintop)::after,
+del:has(.above)::after {
+    top: 0.15em;
+}
+
+/* NOTES */
+
+.note-popup {
+    display: none;
+    position: absolute;
+    background: #fff;
+    border: 1px solid #444;
+    padding: 0.4em 0.6em;
+    font-size: 0.85rem;
+    max-width: 250px;
+    z-index: 20;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.note-marker {
+    font-size: 0.8rem;
+    color: #444;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* show following note when an element is hovered */
+*:hover+.note-popup {
+    display: block;
+}
+
+
+/* LIST */
+ul {
+    list-style: none;
+}
+
+/* CHOICE */
+
+.choice .sic {
+    display: none;
+}
+
+.choice .corr {
+    display: inline;
+}
+
+/* HAND SELECTION */
+
+/* Default (both hands, no highlight) */
+.hand {
+    color: black;
+    background-color: transparent;
+}
+
+/* Highlight Mary */
+.MaryStyle {
+    color: rgb(90, 20, 201);
+}
+
+/* Highlight Percy */
+.PercyStyle {
+    color: rgb(209, 83, 94);
+}
+
+/* dim the other hand */
+.DimStyle {
+    color: rgba(0, 0, 0, .35);
+    /* color because it is overridable */
+}
+
+
+.HideText {
+    display: none;
+}
+
+/* READING TEXT */
+
+
+.reading-text .marginAdd,
+.reading-text .Underlined,
+.reading-text .supraAdd,
+.reading-text .infraAdd,
+.reading-text .overwrittenAdd {
+    all: unset;
+    display: inline;
+}
+
+.reading-text .marginAdd::after {
+    content: " ";
+}
+
+
+.reading-text del {
+    display: none;
+    /* optional: hide deletions in reading text */
+}
+
+
+/* BUTTONS */
+.nav-buttons {
+    display: flex;
+    gap: 0.5em;
+}
+
+.nav-btn {
+    background: #5d6dbb;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    width: 135px;
+}
+
+.nav-btn:hover {
+    background: linear-gradient(#608ecf, #1f4fa3);
+    color: white;
+}
+
+.text-buttons {
+    display: flex;
+    gap: 0.5rem;
+    min-width: 250px;
+
+}
+
+.control-button {
+    padding: 0.45rem 0.7rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+    background-color: rgb(190, 93, 98);
+    transition: all 0.2s ease;
+    width: 240px;
+}
+
+.control-button:hover {
+    background: linear-gradient(180deg, #d63131, #a31f1f);
+    color: white;
+}
+
+
+/* TABLE */
+.statsTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.statsTable th,
+.statsTable td {
+    border: 1px solid #ddd;
+    padding: 0.35rem 0.5rem;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.col-5 p {
+    margin-bottom: 1.2rem;
+}
+
+/* .pageTable {
+    padding-top: 50px;
+} */
+
+.pageTable th,
+.pageTable td {
+    border: 1px solid #ddd;
+    padding: 0.35rem 0.5rem;
+    text-align: center;
+    vertical-align: middle;
+    width: 80px;
+}
+
+.statsTable thead tr {
+    border-bottom: 3px solid #444;
+}
+
+.pageTable thead tr {
+    border: 3px solid #444;
+}
+
+.statsTable tbody tr {
+    border-bottom: 1px solid #444;
+}
+
+.statsTable tbody td:first-child {
+    border-right: 2px solid #444;
+    font-weight: 700;
+}
+
+.nameCol {
+    width: 35%;
+}
+
+
+
+/* Top bar */
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ddd;
+    background: #f7f7f7;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+
+/* Panels */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.panel {
+    border: 1px solid #ddd;
+    background: #fff;
+    padding: 0.9rem 1rem;
+}
+
+.pepegastijl {}
