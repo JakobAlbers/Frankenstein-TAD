@@ -106,7 +106,6 @@ function selectHand(event) {
   var PercyArray = Array.from(visible_percy);
   if (event.target.value == 'both') {
     //write an forEach() method that shows all the text written and modified by both hand (in black?). The forEach() method of Array instances executes a provided function once for each array element.
-    // STARTING HERE!
     MaryArray.forEach((item) => {
       item.classList.remove("MaryStyle", "PercyStyle", "DimStyle");
     });

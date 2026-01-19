@@ -69,7 +69,7 @@
      -->
 
     
-    <!-- all the supralinear additions are given in a span with the class supraAdd, make sure to put this class in superscript in the CSS file, -->
+
 <xsl:template match="tei:add[@place = 'supralinear' or @place = 'margintop' or @place = 'above']">
   <span>
     <xsl:attribute name="class">
@@ -83,13 +83,8 @@
   </span>
 </xsl:template>
 
-
-
-
-
     
 
-<!-- HERE BE TROUBLE -->
 <!-- add additional templates below, for example to transform the tei:lb in <br/> empty elements, tei:hi[@rend = 'sup'] in <sup> elements, the underlined text, additions with the attribute "overwritten" etc. -->
 
 <xsl:template match="tei:add[@place='infralinear']">
@@ -115,26 +110,24 @@
   </span>
 </xsl:template>
 
-
-<!-- STARTING HERE! -->
-<!-- EXPLAIN THIS DELETE tag-->
+<!-- new delete tag -->
   <xsl:template match="tei:del">
     <del>
       <xsl:attribute name="class">
 
-        <!-- type class(es), e.g. overwritten crossedOut -->
+        <!-- type classes -->
         <xsl:if test="@type">
           <xsl:value-of select="normalize-space(@type)"/>
           <xsl:text> </xsl:text>
         </xsl:if>
 
-        <!-- rend class(es), e.g. crossedOut blackink -->
+        <!-- rend class -->
         <xsl:if test="@rend">
           <xsl:value-of select="normalize-space(@rend)"/>
           <xsl:text> </xsl:text>
         </xsl:if>
 
-        <!-- hand class, e.g. hand-MWS -->
+        <!-- hand class-->
         <xsl:if test="@hand">
           <xsl:text>hand </xsl:text>
           <xsl:value-of select="@hand"/>
@@ -187,7 +180,7 @@
 <!-- NOTES -->
 <xsl:template match="tei:note">
 <span class="note-wrap">
-<!--  in-text marker so readers can see there is a note  -->
+<!--  note marker so readers can see there is a note  -->
 <span class="note-marker" tabindex="0" aria-label="Note">†</span>
 <span class="note-popup">
 <xsl:value-of select="normalize-space(.)"/>
@@ -223,7 +216,6 @@
 </xsl:template>
 
 <!-- CHOICE -->
-<!-- choice: output both readings -->
 <xsl:template match="tei:choice">
   <span class="choice">
     <span class="corr">
@@ -238,9 +230,7 @@
 <!-- default: suppress sic content itself -->
 <xsl:template match="tei:sic//text()"/>
 
-<!-- HAND selection -->
 
 
-
-<!-- don't add anything underneath here you imbecile -->
 </xsl:stylesheet>
+<!-- don't add anything underneath here you imbecile -->

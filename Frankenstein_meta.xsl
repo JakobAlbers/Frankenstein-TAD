@@ -7,7 +7,6 @@
 
 <xsl:template match="tei:TEI">
   <div class="page">
-<!-- STARTING HERE -->
   <!-- TOP BAR -->
   <div class="topbar">
       <div class="nav-buttons">
@@ -47,8 +46,7 @@
             <xsl:when test="string-length(normalize-space($pageText)) = 0">0</xsl:when>
             <xsl:otherwise>
               <xsl:value-of select="
-                string-length(normalize-space($pageText))
-                - string-length(translate(normalize-space($pageText), ' ', '')) + 1"/>
+                string-length(normalize-space($pageText)) - string-length(translate(normalize-space($pageText), ' ', '')) + 1"/>
             </xsl:otherwise>
           </xsl:choose>
         </b>
@@ -63,9 +61,7 @@
             </xsl:for-each>
           </xsl:variable>
 
-          <xsl:value-of select="
-            string-length(normalize-space($pageText2))
-            - string-length(translate(normalize-space($pageText2), ' ', '')) + 1"/>
+          <xsl:value-of select="string-length(normalize-space($pageText2))- string-length(translate(normalize-space($pageText2), ' ', '')) + 1"/>
         </b>
       </li>
     </ul>
